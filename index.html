@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Classic Title</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { margin: 0; overflow: hidden; display: flex; flex-direction: column; }
+        canvas { display: block; flex-grow: 1; }
+        .controls {
+            padding: 10px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        .controls button {
+            margin: 0 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <button id="generate-world-btn">Simulate World Generation</button>
+        <button id="gameplay-action-btn">Simulate Gameplay Action</button>
+        <button id="encounter-issue-btn">Simulate Error/Warning</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="player.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

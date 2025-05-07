@@ -1,0 +1,65 @@
+{
+  "textureBasePath": "assets/textures/",
+  "blocks": [
+    {
+      "id": "0",
+      "name": "Test Block",
+      "textures": {
+        "up": "test_block.png",
+        "down": "test_block.png",
+        "north": "test_block.png",
+        "south": "test_block.png",
+        "east": "test_block.png",
+        "west": "test_block.png"
+      }
+    },
+    {
+      "id": "1",
+      "name": "Grass",
+      "textures": {
+        "up": "grass_block-top.png",
+        "down": "grass_block-base.png",
+        "north": "grass_block-side.png",
+        "south": "grass_block-side.png",
+        "east": "grass_block-side.png",
+        "west": "grass_block-side.png"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Dirt",
+      "textures": {
+        "up": "dirt_block.png",
+        "down": "dirt_block.png",
+        "north": "dirt_block.png",
+        "south": "dirt_block.png",
+        "east": "dirt_block.png",
+        "west": "dirt_block.png"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Stone",
+      "textures": {
+        "up": "stone.png",
+        "down": "stone.png",
+        "north": "stone.png",
+        "south": "stone.png",
+        "east": "stone.png",
+        "west": "stone.png"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Bedrock",
+      "textures": {
+        "up": "bedrock.png",
+        "down": "bedrock.png",
+        "north": "bedrock.png",
+        "south": "bedrock.png",
+        "east": "bedrock.png",
+        "west": "bedrock.png"
+      }
+    }
+  ]
+}
