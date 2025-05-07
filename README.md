@@ -89,11 +89,12 @@ The buttons below the 3D view are a simple demonstration of fetching potential l
 4.  Ensure all necessary files (from the instructions in the chat where you built this) are present, including the `assets/textures/` folder with your texture images.
 5.  Open `index.html` in your web browser.
 
-## 🙏 Credits 🙏
-
-* Inspired by the amazing game Minecraft. All rights and credit for the original concept and assets go to Mojang Studios / Microsoft.
-* Uses the [Three.js](https://threejs.org/) library for 3D rendering.
-
 ---
 
-This README provides a good overview for anyone looking at your project! Let me know if you'd like to add or change anything.
+## 📝 License
+
+This project is made available under the terms of the [LICENSE.md](LICENSE.md) file.
+
+## © Copyright
+
+(C) 2025 ToxicStudios Copyright. All Rights Reserved.
