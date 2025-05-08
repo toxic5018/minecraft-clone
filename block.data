@@ -1,41 +1,70 @@
 {
   "textureBasePath": "assets/textures/",
+  "soundBasePath": "assets/sounds/",
+  "soundCategories": {
+    "grass": {
+      "baseName": "block-grass",
+      "variations": ["001", "002", "003", "004"]
+    },
+    "gravel": {
+      "baseName": "block-gravel",
+      "variations": ["001", "002", "003", "004"]
+    },
+    "sand": {
+      "baseName": "block-sand",
+      "variations": ["001", "002", "003", "004"]
+    },
+    "stone": {
+      "baseName": "block-stone",
+      "variations": ["001", "002", "003", "004"]
+    },
+    "wood": {
+      "baseName": "block-wood",
+      "variations": ["001", "002", "003", "004"]
+    }
+  },
   "blocks": [
     {
       "id": "0",
       "name": "Test Block",
       "textures": {
-        "up": "test_block.png",
-        "down": "test_block.png",
-        "north": "test_block.png",
-        "south": "test_block.png",
-        "east": "test_block.png",
-        "west": "test_block.png"
-      }
+        "up": "test.png",
+        "down": "test.png",
+        "north": "test.png",
+        "south": "test.png",
+        "east": "test.png",
+        "west": "test.png"
+      },
+      "allowBreaking": true,
+      "soundCategory": "stone"
     },
     {
       "id": "1",
       "name": "Grass",
       "textures": {
-        "up": "grass_block-top.png",
-        "down": "grass_block-base.png",
-        "north": "grass_block-side.png",
-        "south": "grass_block-side.png",
-        "east": "grass_block-side.png",
-        "west": "grass_block-side.png"
-      }
+        "up": "grass-top.png",
+        "down": "grass-base.png",
+        "north": "grass-side.png",
+        "south": "grass-side.png",
+        "east": "grass-side.png",
+        "west": "grass-side.png"
+      },
+      "allowBreaking": true,
+      "soundCategory": "grass"
     },
     {
       "id": "2",
       "name": "Dirt",
       "textures": {
-        "up": "dirt_block.png",
-        "down": "dirt_block.png",
-        "north": "dirt_block.png",
-        "south": "dirt_block.png",
-        "east": "dirt_block.png",
-        "west": "dirt_block.png"
-      }
+        "up": "dirt.png",
+        "down": "dirt.png",
+        "north": "dirt.png",
+        "south": "dirt.png",
+        "east": "dirt.png",
+        "west": "dirt.png"
+      },
+      "allowBreaking": true,
+      "soundCategory": "grass"
     },
     {
       "id": "3",
@@ -47,7 +76,9 @@
         "south": "stone.png",
         "east": "stone.png",
         "west": "stone.png"
-      }
+      },
+      "allowBreaking": true,
+      "soundCategory": "stone"
     },
     {
       "id": "4",
@@ -59,7 +90,24 @@
         "south": "bedrock.png",
         "east": "bedrock.png",
         "west": "bedrock.png"
-      }
+      },
+      "allowBreaking": false,
+       "soundCategory": "stone"
+    },
+    {
+      "id": "5",
+      "name": "Cobblestone",
+      "textures": {
+        "up": "cobblestone.png",
+        "down": "cobblestone.png",
+        "north": "cobblestone.png",
+        "south": "cobblestone.png",
+        "east": "cobblestone.png",
+        "west": "cobblestone.png"
+      },
+      "allowBreaking": true,
+      "soundCategory": "stone"
     }
+
   ]
 }

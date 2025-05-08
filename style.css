@@ -1,2 +1,29 @@
-/* This file is currently empty.
-   We will add styles for the Minecraft Classic Title later. */
+/* Basic styles to make the canvas fill the page */
+body { margin: 0; overflow: hidden; display: flex; flex-direction: column; }
+canvas { display: block; flex-grow: 1; }
+.controls {
+    padding: 10px;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+.controls button {
+    margin: 0 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+/* Style for the crosshair overlay (if not in index.html) */
+#crosshair {
+    position: fixed; /* Position it relative to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the element's size */
+    width: 20px; /* Example size */
+    height: 20px; /* Example size */
+    background-image: url('assets/ui/crosshair.png'); /* Your crosshair image */
+    background-size: contain; /* Scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none; /* Allow mouse events to pass through to the canvas */
+    z-index: 10; /* Ensure it's above the canvas */
+}

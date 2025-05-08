@@ -18,9 +18,26 @@
             padding: 8px 15px;
             cursor: pointer;
         }
+         /* Style for the crosshair overlay */
+        #crosshair {
+            position: fixed; /* Position it relative to the viewport */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust for the element's size */
+            width: 20px; /* Example size */
+            height: 20px; /* Example size */
+            background-image: url('assets/ui/crosshair.png'); /* Your crosshair image */
+            background-size: contain; /* Scale image to fit */
+            background-repeat: no-repeat;
+            background-position: center;
+            pointer-events: none; /* Allow mouse events to pass through to the canvas */
+            z-index: 10; /* Ensure it's above the canvas */
+        }
     </style>
 </head>
 <body>
+    <div id="crosshair"></div>
+
     <div class="controls">
         <button id="generate-world-btn">Simulate World Generation</button>
         <button id="gameplay-action-btn">Simulate Gameplay Action</button>
@@ -29,6 +46,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="chunk.js"></script>
     <script src="player.js"></script>
     <script src="script.js"></script>
 </body>
