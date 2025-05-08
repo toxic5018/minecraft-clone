@@ -27,3 +27,28 @@ canvas { display: block; flex-grow: 1; }
     pointer-events: none; /* Allow mouse events to pass through to the canvas */
     z-index: 10; /* Ensure it's above the canvas */
 }
+
+/* Removed Debug Menu styles */
+/*
+#debug-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+#debug-menu button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+*/

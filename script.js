@@ -15,9 +15,7 @@ const loadedTextures = {}; // Stores loaded Three.js Texture objects by filename
 const blockMaterials = {}; // Stores arrays of materials [6 per block face] by block ID
 const blockDataMap = new Map(); // Stores block definitions by ID
 
-// Sound base path and categories from block.data
-let soundBasePath = ''; // Will be loaded from block.data
-let soundCategories = {}; // Will be loaded from block.data
+// Removed sound-related variables from script.js
 
 
 // Player instance
@@ -31,6 +29,9 @@ let loadedLogs = [];
 let loadedWarns = [];
 let loadedErrors = [];
 
+// Removed Debug Menu UI elements from here
+
+
 // ----------------------------------
 // Three.js Setup
 // ----------------------------------
@@ -40,18 +41,21 @@ document.body.insertBefore(renderer.domElement, document.querySelector('.control
 
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
+// Set the background color of the scene to sky blue
+scene.background = new THREE.Color(0x7fcdfe);
+
 
 // ----------------------------------
 // Animation Loop
 // ----------------------------------
-
+// Moved the animate function definition here
 function animate(currentTime) {
     requestAnimationFrame(animate);
 
-    const deltaTime = (currentTime - lastTime) / 1000;
+    const deltaTime = (currentTime - lastTime) / 1000; // Keep /1000 for now
     lastTime = currentTime;
 
-    if (player) {
+    if (player) { // Player update is always active
         player.update(deltaTime);
     }
 
@@ -74,29 +78,44 @@ fetch('block.data')
     })
     .then(blockData => {
         const textureBasePath = blockData.textureBasePath || '';
-        soundBasePath = blockData.soundBasePath || ''; // Read sound base path
-        soundCategories = blockData.soundCategories || {}; // Read sound categories
+        // Removed sound-related data loading from script.js
 
         const uniqueTexturePaths = new Set();
+        // Removed sound path collection from script.js
 
         blockData.blocks.forEach(block => {
             blockDataMap.set(block.id, block);
+            // Collect texture paths
             Object.values(block.textures).forEach(filename => {
                  uniqueTexturePaths.add(textureBasePath + filename);
             });
+            // Removed sound data processing for blocks from script.js
         });
 
         const texturePathsArray = Array.from(uniqueTexturePaths);
         console.log(`Identified ${texturePathsArray.length} unique textures to load.`);
 
+        // Removed sound path array creation from script.js
+
+
+        // Load Textures
         const texturePromises = texturePathsArray.map(path => textureLoader.loadAsync(path));
 
+        // Removed sound loading promises from script.js
+
+
+        // Wait for textures to load
         return Promise.all(texturePromises)
-            .then(loadedThreeTextures => {
-                console.log('All textures loaded.');
-                 loadedThreeTextures.forEach((texture, index) => {
+            .then(results => {
+                console.log('All texture assets load process finished.');
+
+                 // Process loaded textures
+                 results.forEach((texture, index) => {
                      loadedTextures[texturePathsArray[index]] = texture;
-                });
+                 });
+
+                 // Removed sound preloading logs from script.js
+
 
                 console.log('Preparing materials for blocks...');
                 blockData.blocks.forEach(block => {
@@ -112,10 +131,12 @@ fetch('block.data')
                 });
                  console.log(`Prepared materials for ${Object.keys(blockMaterials).length} block types.`);
 
+
                 // --- World Management and Player Setup ---
 
                 // Create the WorldManager instance
-                worldManager = new WorldManager(scene, blockMaterials, player);
+                // NOTE: WorldManager class definition is in chunk.js now
+                worldManager = new WorldManager(scene, blockMaterials, player); // Player is undefined here, but WM constructor should store the reference
 
                 // Create the player instance AFTER WorldManager is defined
                 player = new Player(
@@ -123,12 +144,11 @@ fetch('block.data')
                     worldManager, // Pass the WorldManager instance
                     scene,
                     blockMaterials,
-                    blockDataMap, // Pass the blockDataMap to Player
-                    soundBasePath, // Pass the sound base path
-                    soundCategories // Pass the sound categories
+                    blockDataMap
+                    // Removed passing sound data from script.js
                 );
 
-                 worldManager.player = player;
+                 worldManager.player = player; // Provide player reference to WorldManager for methods that need it
 
 
                 // Generate the world data using the WorldManager
@@ -136,25 +156,38 @@ fetch('block.data')
 
 
                 // Set the player's initial position just above the highest solid block layer (Grass)
-                const highestSolidBlockY = worldManager.getHighestSolidBlockY();
+                 // Use worldManager to find the highest block at the spawn X, Z
+                const spawnX = 0; // Example spawn X relative to world center
+                const spawnZ = 0; // Example spawn Z relative to world center
+                const highestSolidBlockY = worldManager.getHighestSolidBlockY(spawnX, spawnZ);
+
 
                 player.position.set(
-                    0,
-                    highestSolidBlockY + 2,
-                    0
+                    spawnX, // Spawn at world center X
+                    highestSolidBlockY + 2, // Spawn 2 units above the highest block
+                    spawnZ // Spawn at world center Z
                 );
                  console.log(`Player created at initial position: ${player.position.x}, ${player.position.y}, ${player.position.z}`);
 
+                 // Add Fog to the scene - color matches background
+                 // Fog parameters depend on the player's render distance
+                 scene.fog = new THREE.Fog(0x7fcdfe, player.renderDistance * 0.8, player.renderDistance * 1.2);
 
-                 player.updateChunks();
+
+                 player.updateChunks(); // Initial chunk load
 
 
-                animate(performance.now());
+                 // Removed Debug Menu and Game Mode Setup from here
+                 // Removed event listeners for debug menu buttons
+                 // Removed key listener to toggle debug menu ('P' key)
+
+
+                animate(performance.now()); // animate is defined
             });
     })
     .catch(error => {
-        console.error('Error loading block data or textures:', error);
-        // Handle fatal error
+        console.error('Error loading block data or assets:', error);
+        // Handle fatal error - maybe display an error screen
     });
 
 

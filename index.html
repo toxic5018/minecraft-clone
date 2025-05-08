@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Classic Title</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Minecraft Classic</title> <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         body { margin: 0; overflow: hidden; display: flex; flex-direction: column; }
         canvas { display: block; flex-grow: 1; }
@@ -33,6 +33,7 @@
             pointer-events: none; /* Allow mouse events to pass through to the canvas */
             z-index: 10; /* Ensure it's above the canvas */
         }
+        /* Removed Debug Menu styles from here, should be in style.css if needed later */
     </style>
 </head>
 <body>
@@ -46,7 +47,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="chunk.js"></script>
+     <script src="chunk.js"></script>
     <script src="player.js"></script>
     <script src="script.js"></script>
 </body>
